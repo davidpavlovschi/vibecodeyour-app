@@ -1,0 +1,122 @@
+---
+title: "Your Two Stacks"
+description: "Native SwiftUI + AuraKit vs Flutter + Firebase. When to use which"
+---
+
+# Your Two Stacks
+
+You don't need one stack. You need two — each optimized for different types of apps.
+
+## Stack 1: Native SwiftUI + AuraKit (Primary)
+
+This is your **primary stack** for 80% of apps. It's optimized for:
+
+- Apps that feel unmistakably iOS-native
+- Subscription-based apps using StoreKit 2
+- Apps that leverage Apple frameworks (HealthKit, CoreML, ARKit)
+- Suite apps sharing a common framework
+
+### The Components
+
+```
+SwiftUI           → UI layer
+@Observable       → State management (MVVM)
+SwiftData         → Local persistence + iCloud sync
+StoreKit 2        → In-app purchases & subscriptions
+XcodeGen          → Project file generation
+AuraKit           → Your shared framework library
+```
+
+### When to Use Native
+
+Use native SwiftUI when:
+- The app needs to feel premium and iOS-native
+- You're using Apple-specific APIs (HealthKit, StoreKit, etc.)
+- The app is part of an existing suite
+- Performance matters (animations, real-time UI)
+- You want maximum control over the user experience
+
+<Callout type="info">
+AI tools generate better SwiftUI code than almost any other mobile framework. The declarative syntax maps well to natural language descriptions, making vibecoding particularly effective.
+</Callout>
+
+## Stack 2: Flutter + Firebase (Secondary)
+
+This is your **secondary stack** for apps that need:
+
+- Complex real-time state (multiplayer, live data)
+- Heavy Firebase integration (Firestore, Auth, Cloud Functions)
+- Rapid prototyping with hot reload
+- Future cross-platform potential (if an app proves successful on iOS)
+
+### The Components
+
+```
+Flutter 3.x       → Cross-platform UI
+Riverpod 3.x      → State management
+Freezed            → Immutable models + JSON serialization
+GoRouter           → Navigation
+Firebase           → Backend (Firestore, Auth, Analytics)
+RevenueCat         → Subscription management
+```
+
+### When to Use Flutter
+
+Use Flutter when:
+- The app has complex, real-time state management needs
+- You need deep Firebase integration (Firestore listeners, Cloud Functions)
+- The app might expand to Android if it proves profitable
+- You're building something that doesn't need to feel "Apple-native"
+
+## The Decision Tree
+
+When you have a new app idea, run it through this:
+
+```
+Does it need Apple-specific APIs?
+  → YES → Native SwiftUI
+
+Is it part of an existing suite?
+  → YES → Whatever that suite uses
+
+Does it need real-time Firebase/Firestore?
+  → YES → Consider Flutter
+
+Is it a subscription app that needs to feel premium?
+  → YES → Native SwiftUI
+
+Is it a utility/tool that might go cross-platform?
+  → YES → Consider Flutter
+
+Default → Native SwiftUI
+```
+
+The default is always native. Flutter is for specific use cases where its strengths outweigh the loss of native feel.
+
+## What About React Native / Kotlin Multiplatform / etc.?
+
+Short answer: no.
+
+Longer answer: every additional technology in your stack is a tax. You need to maintain knowledge, keep dependencies updated, handle breaking changes, and train your AI tools on the patterns. Two stacks is the sweet spot — enough flexibility to handle any app idea, not so many that you're spread thin.
+
+<Callout type="warning">
+Don't pick your stack based on what's trendy. Pick it based on what ships revenue-generating apps fastest. For solo developers in 2025+, that's SwiftUI (primary) and Flutter (secondary).
+</Callout>
+
+## Setting Up Both Stacks
+
+We'll cover the detailed setup in Module 3 (Toolkit), but here's what you'll need:
+
+**For Native SwiftUI:**
+- Mac with Xcode (latest stable)
+- Apple Developer Account ($99/year)
+- XcodeGen (`brew install xcodegen`)
+- Claude Code CLI
+
+**For Flutter:**
+- Flutter SDK (`brew install flutter`)
+- Android Studio (for Flutter tooling, even on iOS)
+- Firebase CLI
+- Claude Code CLI
+
+Both stacks use Claude Code as the primary AI tool. Your CLAUDE.md and PATTERNS.md files work with both — the methodology is stack-agnostic, even if the implementation isn't.

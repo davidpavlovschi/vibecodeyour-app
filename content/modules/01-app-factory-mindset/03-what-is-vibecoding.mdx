@@ -1,0 +1,101 @@
+---
+title: "What Vibecoding Actually Is"
+description: "AI as engineer, you as PM. CLAUDE.md as onboarding docs"
+---
+
+# What Vibecoding Actually Is
+
+Vibecoding isn't "having AI write code for you." That's like saying management is "having employees do work for you." It misses the entire point.
+
+Vibecoding is a **development methodology** where you operate as the product manager and architect, and AI operates as the engineering team. You define *what* to build and *why*. AI handles *how*.
+
+## The Role Split
+
+In traditional development:
+- You research → you design → you code → you debug → you deploy
+
+In vibecoding:
+- **You** research → **you** design → **AI** codes → **you + AI** debug → **you** deploy
+
+The critical insight: the most valuable work in software development is **deciding what to build**. That's what you keep. The implementation — translating decisions into syntax — is what AI handles.
+
+## CLAUDE.md: Your Onboarding Document
+
+Every company writes onboarding docs for new engineers. CLAUDE.md is the onboarding document for your AI engineer.
+
+It tells Claude (or any AI tool):
+- What the project is and why it exists
+- The architecture and key patterns
+- Coding conventions and style rules
+- What NOT to do (equally important)
+- How to build, test, and deploy
+
+```markdown title="CLAUDE.md"
+# Project: BeautyTracker
+
+## What This Is
+iOS app for tracking skincare routines. Part of the Beauty Suite.
+
+## Architecture
+- SwiftUI + @Observable MVVM
+- SwiftData for persistence
+- AuraBeautyKit for shared components
+
+## Conventions
+- One file per type (View, ViewModel, Model)
+- Feature-first directory structure
+- No force unwrapping. Ever.
+- Use SwiftData @Query, not manual fetching
+
+## Build & Run
+- `xcodegen generate` to regenerate project
+- Build target: BeautyTracker (iOS 17+)
+```
+
+<Callout type="key">
+The quality of your CLAUDE.md directly determines the quality of AI-generated code. A vague CLAUDE.md produces vague code. A specific, opinionated CLAUDE.md produces code that matches your standards.
+</Callout>
+
+## The Three Modes of Vibecoding
+
+### 1. Scaffolding Mode
+You're starting a new project or feature. AI generates the initial structure.
+
+**Your job**: Define the architecture, file structure, and patterns.
+**AI's job**: Generate boilerplate, create files, set up the skeleton.
+
+### 2. Feature Mode
+You're adding functionality to an existing project.
+
+**Your job**: Describe the feature, its edge cases, and how it integrates.
+**AI's job**: Implement it following established patterns.
+
+### 3. Fix Mode
+Something's broken. You need to debug and repair.
+
+**Your job**: Provide error messages, context, and constraints.
+**AI's job**: Diagnose and fix, following the build-fix loop.
+
+## What Vibecoding is NOT
+
+Let's be clear about what this methodology *isn't*:
+
+- **Not copy-pasting ChatGPT output** — That's cargo cult programming
+- **Not "no-code"** — You need to understand code to review it
+- **Not faster-but-worse** — Done right, vibecodeed apps are indistinguishable from hand-coded ones
+- **Not a shortcut around understanding** — You need to understand architecture, patterns, and business logic. You just don't need to memorize syntax
+
+## The Compound Advantage
+
+Vibecoding gets better over time because:
+
+1. **Your CLAUDE.md gets more detailed** — Each project teaches you what to specify
+2. **Your PATTERNS.md grows** — Solutions you've validated become reusable templates
+3. **Your frameworks mature** — Shared code means AI has better context
+4. **Your prompting improves** — You learn how to describe what you want precisely
+
+This is why the portfolio strategy and vibecoding are synergistic. Each app makes the methodology stronger for the next one.
+
+<Callout type="tip">
+Start a PATTERNS.md file today. Every time you solve a non-obvious problem — a SwiftData migration pattern, a StoreKit edge case, a UI trick — write it down. This file becomes your institutional knowledge base.
+</Callout>
