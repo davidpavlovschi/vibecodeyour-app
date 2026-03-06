@@ -1,6 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
 import Callout from "./Callout";
+import CodeBlockEnhancer from "./CodeBlockEnhancer";
 
 const components = {
   Callout,
@@ -8,24 +10,27 @@ const components = {
 
 export default function LessonContent({ source }: { source: string }) {
   return (
-    <div className="lesson-content">
-      <MDXRemote
-        source={source}
-        components={components}
-        options={{
-          mdxOptions: {
-            rehypePlugins: [
-              [
-                rehypePrettyCode,
-                {
-                  theme: "github-dark-default",
-                  keepBackground: true,
-                },
+    <CodeBlockEnhancer>
+      <div className="lesson-content">
+        <MDXRemote
+          source={source}
+          components={components}
+          options={{
+            mdxOptions: {
+              rehypePlugins: [
+                rehypeSlug,
+                [
+                  rehypePrettyCode,
+                  {
+                    theme: "github-dark-default",
+                    keepBackground: true,
+                  },
+                ],
               ],
-            ],
-          },
-        }}
-      />
-    </div>
+            },
+          }}
+        />
+      </div>
+    </CodeBlockEnhancer>
   );
 }

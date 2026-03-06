@@ -1,42 +1,32 @@
+import Header from "@/components/Header";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About - Vibe Code Your App",
+  title: "About",
   description: "David Pavlovschii, founder of Doved Studio. 33+ published iOS apps built solo with AI-assisted development.",
 };
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 z-30 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-          <Link href="/" className="text-sm font-bold tracking-tight">
-            vibecodeyour.app
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/course" className="text-sm text-muted hover:text-foreground transition-colors">
-              Course
-            </Link>
-            <Link href="/pricing" className="text-sm text-muted hover:text-foreground transition-colors">
-              Pricing
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
-      <main className="mx-auto max-w-2xl px-6 pt-32 pb-20">
-        <h1 className="mb-6 text-4xl font-bold tracking-tight">About</h1>
+      <main className="mx-auto max-w-2xl px-6 pt-36 pb-24">
+        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+          About
+        </p>
+        <h1 className="mb-8 text-4xl font-extrabold tracking-[-0.03em]">The Story</h1>
 
-        <div className="space-y-6 text-[#d4d4d4] leading-relaxed">
-          <p className="text-lg">
-            I&apos;m <strong className="text-foreground">David Pavlovschii</strong>, founder of{" "}
-            <strong className="text-foreground">Doved Studio</strong>. I&apos;ve published 33+ iOS apps
+        <div className="space-y-6 text-[15px] leading-relaxed text-muted/80">
+          <p className="text-lg text-foreground/80">
+            I&apos;m <strong className="text-foreground font-semibold">David Pavlovschii</strong>, founder of{" "}
+            <strong className="text-foreground font-semibold">Doved Studio</strong>. I&apos;ve shipped 33+ iOS apps
             on the App Store as a solo developer &mdash; with zero formal coding background.
           </p>
 
           <p>
-            I didn&apos;t learn to code the traditional way. I learned to <em>vibecode</em> &mdash;
+            I didn&apos;t learn to code the traditional way. I learned to <em className="text-foreground/70">vibecode</em> &mdash;
             using AI tools like Claude Code, Cursor, and DeepSeek to turn ideas into shipped products
             at a pace that would be impossible alone.
           </p>
@@ -47,9 +37,9 @@ export default function AboutPage() {
             the same methodology: validate the idea, scaffold with AI, ship fast, iterate based on data.
           </p>
 
-          <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="mb-4 text-xl font-semibold text-foreground">By the Numbers</h2>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="rounded-2xl border border-white/[0.04] bg-[#0c0c0c] p-7">
+            <h2 className="mb-5 text-lg font-semibold text-foreground">By the Numbers</h2>
+            <div className="grid grid-cols-2 gap-6">
               {[
                 ["33+", "Published iOS Apps"],
                 ["3", "App Suites"],
@@ -57,8 +47,8 @@ export default function AboutPage() {
                 ["1", "Developer"],
               ].map(([value, label]) => (
                 <div key={label}>
-                  <div className="text-2xl font-bold text-foreground">{value}</div>
-                  <div className="text-muted">{label}</div>
+                  <div className="text-3xl font-extrabold tracking-tight text-foreground">{value}</div>
+                  <div className="mt-0.5 text-[13px] text-muted/50">{label}</div>
                 </div>
               ))}
             </div>
@@ -66,21 +56,20 @@ export default function AboutPage() {
 
           <p>
             This course is everything I&apos;ve learned distilled into a methodology. Not code snippets
-            you&apos;ll forget &mdash; the <em>system</em> for building profitable apps at scale.
-            Prompt engineering, business validation, system design. The three pillars that make
-            vibecoding work.
+            you&apos;ll forget &mdash; the <em className="text-foreground/70">system</em> for building profitable apps at scale.
           </p>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-6">
             <Link
               href="/course"
-              className="inline-flex h-10 items-center rounded-lg bg-accent px-6 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+              className="group relative inline-flex h-11 items-center overflow-hidden rounded-xl bg-accent px-7 text-sm font-semibold text-white transition-all hover:shadow-[0_0_28px_rgba(139,92,246,0.3)]"
             >
-              Start the Course
+              <span className="relative z-10">Start the Course</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-600 opacity-0 transition-opacity group-hover:opacity-100" />
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex h-10 items-center rounded-lg border border-border px-6 text-sm font-medium transition-colors hover:bg-sidebar-hover"
+              className="inline-flex h-11 items-center rounded-xl border border-white/[0.08] px-7 text-sm font-medium transition-all hover:border-white/[0.15] hover:bg-white/[0.03]"
             >
               View Pricing
             </Link>

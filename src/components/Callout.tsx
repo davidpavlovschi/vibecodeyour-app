@@ -2,30 +2,34 @@ import { ReactNode } from "react";
 
 type CalloutType = "tip" | "warning" | "info" | "key";
 
-const styles: Record<CalloutType, { border: string; bg: string; icon: string; label: string }> = {
+const styles: Record<CalloutType, { border: string; bg: string; icon: string; label: string; accent: string }> = {
   tip: {
-    border: "border-green-500/30",
-    bg: "bg-green-500/5",
+    border: "border-emerald-500/20",
+    bg: "bg-emerald-500/[0.04]",
     icon: "💡",
     label: "Tip",
+    accent: "text-emerald-400",
   },
   warning: {
-    border: "border-yellow-500/30",
-    bg: "bg-yellow-500/5",
+    border: "border-amber-500/20",
+    bg: "bg-amber-500/[0.04]",
     icon: "⚠️",
     label: "Warning",
+    accent: "text-amber-400",
   },
   info: {
-    border: "border-blue-500/30",
-    bg: "bg-blue-500/5",
+    border: "border-blue-400/20",
+    bg: "bg-blue-400/[0.04]",
     icon: "ℹ️",
     label: "Info",
+    accent: "text-blue-400",
   },
   key: {
-    border: "border-violet-500/30",
-    bg: "bg-violet-500/5",
+    border: "border-violet-400/20",
+    bg: "bg-violet-400/[0.04]",
     icon: "🔑",
     label: "Key Takeaway",
+    accent: "text-violet-400",
   },
 };
 
@@ -40,12 +44,12 @@ export default function Callout({
 }) {
   const s = styles[type];
   return (
-    <div className={`my-6 rounded-lg border ${s.border} ${s.bg} p-4`}>
-      <div className="mb-1 flex items-center gap-2 text-sm font-semibold">
+    <div className={`my-6 rounded-xl border ${s.border} ${s.bg} p-5`}>
+      <div className={`mb-2 flex items-center gap-2 text-sm font-semibold ${s.accent}`}>
         <span>{s.icon}</span>
         <span>{title || s.label}</span>
       </div>
-      <div className="text-sm leading-relaxed text-[#d4d4d4]">{children}</div>
+      <div className="text-[13px] leading-relaxed text-muted/80 [&>p]:mb-0">{children}</div>
     </div>
   );
 }
