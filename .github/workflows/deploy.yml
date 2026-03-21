@@ -11,6 +11,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -30,4 +31,4 @@ jobs:
 
       - name: Build and restart
         run: |
-          ssh -i ~/.ssh/key -o StrictHostKeyChecking=no deploy@${{ secrets.DEPLOY_HOST }} "cd ~/repos/vibecodeyour-app && cp ~/deploy/envs/vibecodeyour.env .env 2>/dev/null; docker build -t ghcr.io/davidpavlovschi/vibecodeyour-app:latest . && cd ~/deploy && docker compose up -d vibecodeyour"
+          ssh -i ~/.ssh/key -o StrictHostKeyChecking=no deploy@${{ secrets.DEPLOY_HOST }} "flock -w 600 /tmp/deploy.lock bash -c 'cd ~/repos/vibecodeyour-app && cp ~/deploy/envs/vibecodeyour.env .env 2>/dev/null; docker build -t ghcr.io/davidpavlovschi/vibecodeyour-app:latest . && cd ~/deploy && docker compose up -d vibecodeyour && docker image prune -f'"
