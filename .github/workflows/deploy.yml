@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+          ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Sync code to server
+        run: |
+          rsync -az --delete \
+            --exclude node_modules --exclude .next --exclude .git \
+            -e "ssh -i ~/.ssh/key" \
+            ./ deploy@${{ secrets.DEPLOY_HOST }}:~/repos/vibecodeyour-app/
+
+      - name: Build and restart
+        run: |
+          ssh -i ~/.ssh/key -o StrictHostKeyChecking=no deploy@${{ secrets.DEPLOY_HOST }} "cd ~/repos/vibecodeyour-app && cp ~/deploy/envs/vibecodeyour.env .env 2>/dev/null; docker build -t ghcr.io/davidpavlovschi/vibecodeyour-app:latest . && cd ~/deploy && docker compose up -d vibecodeyour"
