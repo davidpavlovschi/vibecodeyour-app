@@ -175,6 +175,11 @@ export default function Home() {
                 <Link href="/about" className="text-muted/60 hover:text-foreground transition-colors">About</Link>
                 <Link href="/login" className="text-muted/60 hover:text-foreground transition-colors">Sign In</Link>
               </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-muted/40">Legal</span>
+                <Link href="/privacy" className="text-muted/60 hover:text-foreground transition-colors">Privacy</Link>
+                <Link href="/terms" className="text-muted/60 hover:text-foreground transition-colors">Terms</Link>
+              </div>
             </div>
           </div>
           <div className="mt-8 border-t border-white/[0.04] pt-6 text-[12px] text-muted/30">

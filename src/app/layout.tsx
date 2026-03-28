@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthProvider } from "@/lib/auth";
 import { ProgressProvider } from "@/lib/progress";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -81,6 +82,7 @@ export default function RootLayout({
         <AuthProvider>
           <ProgressProvider>
             {children}
+            <CookieConsent />
           </ProgressProvider>
         </AuthProvider>
       </body>
