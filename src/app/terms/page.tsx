@@ -173,8 +173,8 @@ export default function TermsOfService() {
             <h2 className="mb-4 text-lg font-semibold text-foreground">13. Contact</h2>
             <p>
               For any questions about these Terms, contact us at{" "}
-              <a href="mailto:support@dovedstudio.com" className="text-accent hover:underline">
-                support@dovedstudio.com
+              <a href="mailto:support@vibecodeyour.app" className="text-accent hover:underline">
+                support@vibecodeyour.app
               </a>.
             </p>
           </section>

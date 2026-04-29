@@ -38,8 +38,8 @@ export default function PrivacyPolicy() {
             <p>
               The data controller responsible for your personal data is Doved Studio. For any
               privacy-related inquiries, contact us at{" "}
-              <a href="mailto:support@dovedstudio.com" className="text-accent hover:underline">
-                support@dovedstudio.com
+              <a href="mailto:support@vibecodeyour.app" className="text-accent hover:underline">
+                support@vibecodeyour.app
               </a>.
             </p>
           </section>
@@ -179,8 +179,8 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-4">
               To exercise any of these rights, contact us at{" "}
-              <a href="mailto:support@dovedstudio.com" className="text-accent hover:underline">
-                support@dovedstudio.com
+              <a href="mailto:support@vibecodeyour.app" className="text-accent hover:underline">
+                support@vibecodeyour.app
               </a>. We will respond within 30 days.
             </p>
           </section>
@@ -216,8 +216,8 @@ export default function PrivacyPolicy() {
             <h2 className="mb-4 text-lg font-semibold text-foreground">13. Contact & Supervisory Authority</h2>
             <p className="mb-4">
               For any questions regarding this Privacy Policy or to exercise your rights, contact us at{" "}
-              <a href="mailto:support@dovedstudio.com" className="text-accent hover:underline">
-                support@dovedstudio.com
+              <a href="mailto:support@vibecodeyour.app" className="text-accent hover:underline">
+                support@vibecodeyour.app
               </a>.
             </p>
             <p>
